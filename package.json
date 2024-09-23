@@ -1,0 +1,29 @@
+{
+  "name": "vp",
+  "version": "1.0.0",
+  "description": "veebiprogrammeerimise express.js rakendus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://merili-t@github.com/Merili-t/vp.git"
+  },
+  "keywords": [
+    "veebiprogrammeerimine",
+    "node.js",
+    "Tallinna",
+    "Ülikool"
+  ],
+  "author": "Merili Tiik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merili-t/vp/issues"
+  },
+  "homepage": "https://github.com/Merili-t/vp#readme",
+  "dependencies": {
+    "express": "~4.16.1"
+  }
+}
+
