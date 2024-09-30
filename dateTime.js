@@ -56,5 +56,5 @@ const daysOfWeek = ["pühapäev", "esmaspäev", "teisipäev", "kolmapäev", "nel
 
 
 //ekspordin kõik vajaliku
-module.exports = {dateFormattedEt: dateFormattedEt, weekDayEt: weekDayEt, timeFormattedEt: timeFormattedEt, weekdayNames: weekdayNamesEt, monthNames: monthNamesEt, dayPart: partOfDay};
+module.exports = {dateFormattedEt: dateFormattedEt, weekDayEt: weekDayEt, timeFormattedEt: timeFormattedEt, weekdayNamesEt: weekdayNamesEt, monthNamesEt: monthNamesEt, dayPart: partOfDay};
 
