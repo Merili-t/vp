@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Registreerijate Nimekiri</title>
+</head>
+<body>
+    <h1>Registreerijate Nimekiri</h1>
+    <ul>
+        <% reg.forEach(registration => { %>
+            <li><%= registration.trim() %></li>
+        <% }); %>
+    </ul>
+    <a href="/">Tagasi avalehele</a>
+</body>
+</html>
