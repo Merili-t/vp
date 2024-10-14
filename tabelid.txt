@@ -1,0 +1,3 @@
+Külastuste logi:
+
+CREATE TABLE `if24_merili_ti`.`vp2visitlog` (`id` INT(11) NOT NULL AUTO_INCREMENT , `firstName` VARCHAR(50) NOT NULL , `lastName` VARCHAR(50) NOT NULL , `visitDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;

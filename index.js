@@ -88,6 +88,40 @@ app.post("/regvisit", (req, res)=>{
 });
 
 
+app.get("/regvisitDB", (req, res)=>{
+	let notice = "";
+	let firstName = "";
+	let lastName = "";
+	res.render("regvisitDB", {notice: notice, firstName: firstName, lastName: lastName});
+	
+});
+
+app.post("/regvisitDB", (req, res)=>{
+	let notice= "";
+	//kontrollin, kas kõik vajalikud andmed on olemas
+	if(!req.body.firstNameInput || !req.body.lastNameInput){
+		notice = "osa andmeid on puudu!";
+		firstName = req.body.firstNameInput;
+		lastName = req.body.lastNameInput;
+		res.render("regvisitDB", {notice: notice, firstName: firstName, lastName: lastName});
+	}
+	else {
+		let sqlReq = "INSERT INTO vp2visitlog (firstName, lastName) VALUES(?,?)";
+		conn.query(sqlReq, [req.body.firstNameInput, req.body.lastNameInput], (err, sqlRes)=>{
+			if (err) {
+				notice = "Tehnilistel pأµhjustel andmeid ei salvestatud!";
+				res.render("regvisitDB", {notice: notice, firstName: firstName, lastName: lastName});
+				throw err;
+			}
+			else {
+				res.redirect("/");
+			}
+		});
+	}
+});
+
+
+
 app.get("/reg", (req, res) => {
     const logFilePath = path.join(__dirname, "public/textfiles/log.txt");
    
@@ -110,8 +144,8 @@ app.get("/eestifilm/tegelased", (req, res)=>{
 	let sqlReq = "SELECT firstName, lastname, dateOfBirth FROM person";
 	conn.query(sqlReq, (err, sqlRes)=> {
 		if(err){
-			//throw err;
-		};
+			throw err;
+		}
 		else {
 			//console.log(sqlRes);
 			res.render("tegelased", {persons: sqlRes});
@@ -119,6 +153,10 @@ app.get("/eestifilm/tegelased", (req, res)=>{
 	});
 	//res.render("tegelased");
 	
+});
+
+app.get("/eestifilm/lisa", (req, res)=>{
+	res.render ("addperson");
 });
 
 
