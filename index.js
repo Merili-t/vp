@@ -2,9 +2,14 @@ const express = require("express");
 const dateTime = require ("./dateTime");
 const fs = require("fs");
 const bodyparser = require("body-parser");
-const app = express();
 const path = require("path");
 
+//andmebaasi andmed
+const dbInfo = require("../../vp2024config");
+//andmebaasiga suhtlemine
+const mysql = require("mysql2");
+
+const app = express();
 
 //määran view mootori
 app.set("view engine", "ejs");
@@ -13,9 +18,20 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 //kasutame body-parserit päringute parsimiseks (kui ekst ss false, kui pildid jm ss true)
-app.use(bodyparser.urlencoded({extended: false}))
+app.use(bodyparser.urlencoded({extended: false}));
+
+//loon andmebaasiühenduse
+const conn = mysql.createConnection({
+	host: dbInfo.configData.host,
+	user: dbInfo.configData.user,
+	password: dbInfo.configData.passWord,
+	database: dbInfo.configData.dataBase
+	
+});
+
 app.get("/", (req, res)=>{
 	//res.send("express läks käima!");
+	console.log(dbInfo.configData.host);
 	res.render("index");
 });
 
@@ -85,6 +101,25 @@ app.get("/reg", (req, res) => {
     });
 });
 
+app.get("/eestifilm", (req, res)=>{
+	res.render("eestifilm");
+});
+
+app.get("/eestifilm/tegelased", (req, res)=>{
+	//loon andmebaasipärongu
+	let sqlReq = "SELECT firstName, lastname, dateOfBirth FROM person";
+	conn.query(sqlReq, (err, sqlRes)=> {
+		if(err){
+			//throw err;
+		};
+		else {
+			//console.log(sqlRes);
+			res.render("tegelased", {persons: sqlRes});
+		}
+	});
+	//res.render("tegelased");
+	
+});
 
 
 app.listen(5204);
