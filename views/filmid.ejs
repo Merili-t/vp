@@ -12,24 +12,19 @@
   <h1>Merili Tiik</h1>
   <h2>Tere Tulemast!</h2>																						
   <p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/"> Tallinna Ülikoolis </a> ning ei sisalda tõsiseltvõetavat materjali!</p>
-  <li><a href ="/home">Avalehele</a></li>
+ 
  <hr>
- <h2> Eesti film </h2>
+ <h2> Eesti filmid</h2>
  <ul>
 	<li><a href ="/">Avalehele</a></li>
-	<li><a href ="/addperson"> Lisa uus filmitegelane</a></li>
-	<li><a href ="/eestifilm/tegelased"> Eesti filmtegelased</a></li>
-	<li><a href="/addmovie">Lisa film</a></li>
-	<li><a href ="/eestifilm/filmid"> Eesti filmid</a></li>
-	<li><a href="/addrole">Lisa tegelasele roll</a></li>
-	<li><a href="/addrelations">Lisa seoseid</a></li>
-
-
+	<li><a href ="/eestifilm"> Eesti film</a></li>
  </ul>
  <hr>
+ <ul>
+	<% movies.forEach(function(movie) { %>
+    	<li><%= movie.title %> (V�ljalaskeaasta: <%= movie.production_year %>)</li>
+	<% }); %>
  
- 
-
-
+ </ul>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+	<meta charset="UTF-8">
+	<title>Merili Tiik</title>
+   
+</head>
+
+<body>
+       <img src="/banner/vp_banner_2024.png" alt=" veebiprogrammeerimise 2024 aasta kursuse banner">
+  
+  <h1>Merili Tiik</h1>
+  <h2>Tere Tulemast!</h2>																						
+  <p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/"> Tallinna Ülikoolis </a> ning ei sisalda tõsiseltvõetavat materjali!</p>
+ 
+  
+
+<h2>Lisa uus film (andmebaasi)</h2>
+
+    <form method="POST" action="/addmovie">
+        <label for="titleInput">Sisesta filmi pealkiri: </label>
+        <input type="text" id="titleInput" name="titleInput" placeholder="Filmi pealkiri ..." value="<%= title %>">
+        <br>
+
+        <label for="production_yearInput">Sisesta v�ljalaskeaasta: </label>
+        <input type="number" id="production_yearInput" name="production_yearInput" placeholder="Aasta ..." value="<%= production_year %>">
+        <br>
+
+        <input type="submit" value="Salvesta">
+    </form>
+
+    <p><%= notice %></p>
+
+  
+</body>
+</html> 

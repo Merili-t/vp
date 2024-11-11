@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+	<meta charset="UTF-8">
+	<title>Merili Tiik</title>
+   
+</head>
+
+<body>
+       <img src="/banner/vp_banner_2024.png" alt=" veebiprogrammeerimise 2024 aasta kursuse banner">
+  
+  <h1>Merili Tiik</h1>
+  <h2>Tere Tulemast!</h2>																						
+  <p>See leht on loodud √µppet√∂√∂ raames <a href="https://www.tlu.ee/"> Tallinna √úlikoolis </a> ning ei sisalda t√µsiseltv√µetavat materjali!</p>
+ 
+  
+
+  <h2>roll tegelasele</h2>
+
+   
+    <form method="POST" action="/addrole">
+        <label for="personId">Vali tegelane:</label>
+        <select id="personId" name="personId">
+            <% persons.forEach(function(person) { %>
+                <option value="<%= person.id %>"><%= person.firstName %> <%= person.lastName %></option>
+            <% }); %>
+        </select>
+        <br>
+
+        <label for="movieId">Vali film:</label>
+        <select id="movieId" name="movieId">
+            <% movies.forEach(function(movie) { %>
+                <option value="<%= movie.id %>"><%= movie.title %></option>
+            <% }); %>
+        </select>
+        <br>
+
+        <label for="roleInput">Sisesta roll (nt. n‰itleja, reûissˆˆr):</label>
+        <input type="text" id="roleInput" name="roleInput" value="<%= role %>">
+        <br>
+
+        <input type="submit" value="Salvesta">
+    </form>
+
+    <p><%= notice %></p>
+  
+</body>
+</html> 

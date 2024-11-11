@@ -19,18 +19,23 @@
  </ul>
  <hr>
  <h2> lisa filmitegelane (andmebaasi)</h2>
- <form method="POST">
-	<label for="firstNameInput">Sisesta oma eesnimi: </label>
-	<input type="text" id="firstNameInput" name="firstNameInput" placeholder="Eesnimi ... value=<%= firstName %>">
-	<br>
-	<label for="lastNameInput">Sisesta oma perekonnanimi: </label>
-	<input type="text" id="lastNameInput" name="lastNameInput" placeholder="Perekonnanimi ...<%= lastName %>">
-	<br>
-	<label for="birthDateInput">Sisesta sÃ¼nnikuupÃ¤ev: </label>
-	<input  type="date" id="birthDateInput" name="birthDateInput">
-	<input type="submit" id="regSubmit" name="regSubmit" value="Salvesta">
- </form>
-<p><%= notice %></p>
+ 
+ <form method="POST" action="/addperson">
+    <label for="firstNameInput">Sisesta oma eesnimi:</label>
+    <input type="text" id="firstNameInput" name="firstNameInput" placeholder="Eesnimi ..." value="<%= firstName %>">
+    <br>
 
+    <label for="lastNameInput">Sisesta oma perekonnanimi:</label>
+    <input type="text" id="lastNameInput" name="lastNameInput" placeholder="Perekonnanimi ..." value="<%= lastName %>">
+    <br>
+
+    <label for="dateOfBirthInput">Sisesta sünnikuupäev:</label>
+    <input type="date" id="dateOfBirthInput" name="dateOfBirthInput" value="<%= dateOfBirth %>">
+    <br>
+
+    <input type="submit" value="Salvesta">
+ </form>
+
+ <p><%= notice %></p>
 </body>
 </html>
